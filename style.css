@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("space.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+}
+
+.bordered-canvas {
+    border: 2px solid black; 
+}
+
+#startButton, #muteButton, #fullScreenButton {
+    padding: 10px 20px;
+    background-color: #3498db; 
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#startButton:hover, #muteButton:hover, #fullScreenButton:hover {
+    background-color: #2980b9;
+}
+
+#startButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+
+#fullScreenButton {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.full-screen-button {
+    padding: 10px 20px;
+    background-color: #3498db; 
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.full-screen-button:hover {
+    background-color: #2980b9;
+}
+
+#profit {
+    font-size: 24px; 
+}
+
+#info {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    color: white;
+    z-index: 1; 
+}

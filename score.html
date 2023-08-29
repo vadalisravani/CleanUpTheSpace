@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over - Your Score</title>
+    <style>
+        
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-image: url('space2.jpg'); 
+    background-size: cover; 
+}
+
+.score-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    margin: 0 0 20px 0;
+    color: #3498db; 
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #555555;
+}
+
+#spaceDebrisFacts {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#spaceDebrisFacts h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+#spaceDebrisFacts ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 18px;
+    color: #444444;
+}
+
+#factContainer {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#factContainer h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+#factContainer p {
+    font-size: 18px;
+    color: #444444;
+}
+
+#nextFactButton {
+    padding: 10px 20px;
+    background-color: #3498db; 
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#nextFactButton:hover {
+    background-color: #2980b9; 
+}
+
+    </style>
+</head>
+<body>
+    <div class="score-container">
+        <h1>Game Over</h1>
+        <p>Your final score: <span id="finalScore"></span></p>
+        <p>Thanks for playing!</p>
+        
+        <div id="factContainer">
+            <h2>Did You Know?</h2>
+            <p id="factText">Loading...</p>
+            <button id="nextFactButton">Next Fact</button>
+            <p><a href="https://www.nasa.gov/mission_pages/station/news/orbital_debris.html" target="_blank">Learn more</a></p> <!-- Add the Learn More link here -->
+            
+        </div>
+    </div>
+
+    <script>
+        const spaceDebrisFacts = [
+            "Space debris, also known as 'space junk,' consists of defunct satellites, spent rocket stages, and other fragments from space missions.",
+            "The International Space Station (ISS) sometimes has to maneuver to avoid potential collisions with space debris.",
+            "The amount of space debris in orbit has been increasing over the years, posing a risk to operational satellites and spacecraft.",
+            "The term ORBITAL DEBRIS refers to defunct, non-functional, and discarded human-made objects in Earth's orbit",
+            "The first recorded piece of orbital debris was the upper stage of the Vanguard rocket launched in 1958",
+            "Some satellites have been intentionally deorbited into Earth's atmosphere to burn up and minimize orbital debris",
+            "Over 170 million pieces of space debris smaller than 1 cm are estimated to be in orbit",
+	        "The movie Gravity showcased the dangers of orbital debris and its potential impacts on spacecraft",
+            "Objects in low Earth orbit (LEO) are more susceptible to atmospheric drag, causing them to reenter faster",
+	        "In 2007, China conducted an anti-satellite test, generating thousands of fragments of debris",
+            "Orbital debris can move at speeds exceeding 28,000 km/h (17,500 mph)",
+            "Some countries are developing space debris removal technologies to mitigate the growing problem",
+            "The U.S. Space Surveillance Network tracks more than 26,000 objects in orbit",
+            "Spacecraft in geostationary orbit can remain over the same location on Earth's surface",
+            "The Kessler Syndrome theorizes a cascading effect of collisions, creating more debris and making space less accessible",
+            "The Ring of Death is a region around 800 km above Earth, where debris tends to accumulate",
+            "Orbital debris can create false signals and interference for ground-based radar systems",
+            "In 1996, a French satellite collided with an Ariane rocket, generating thousands of fragments of debris",
+            "Space debris can pose risks to operational satellites and human spaceflight missions",
+            "Satellites can perform collision avoidance maneuvers to avoid potential debris threats",
+            "The International Space Station occasionally performs debris avoidance maneuvers to avoid collisions",
+            "Orbital debris can be hazardous to astronauts during spacewalks and spacecraft docking procedures",
+            // Add more facts here
+        ];
+
+        let currentFactIndex = 0;
+        const factText = document.getElementById("factText");
+        const nextFactButton = document.getElementById("nextFactButton");
+
+        function displayFact(index) {
+            factText.textContent = spaceDebrisFacts[index];
+        }
+
+        nextFactButton.addEventListener("click", () => {
+            currentFactIndex = (currentFactIndex + 1) % spaceDebrisFacts.length;
+            displayFact(currentFactIndex);
+        });
+
+        const finalScore = localStorage.getItem("finalScore");
+        document.getElementById("finalScore").textContent = finalScore;
+        displayFact(currentFactIndex);
+    </script>
+</body>
+</html>
